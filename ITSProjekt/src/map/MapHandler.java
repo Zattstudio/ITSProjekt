@@ -36,7 +36,7 @@ public class MapHandler {
 	
 	
 	public MapHandler() {
-		
+		findPlayer();
 	}
 	
 	void findPlayer() {
@@ -52,6 +52,22 @@ public class MapHandler {
 		// Fallback handling here
 	}
 	
+	public int getCurrentX() {
+		return currentX;
+	}
+
+	public void setCurrentX(int currentX) {
+		this.currentX = currentX;
+	}
+
+	public int getCurrentY() {
+		return currentY;
+	}
+
+	public void setCurrentY(int currentY) {
+		this.currentY = currentY;
+	}
+
 	public char checkRelative(int xOff, int yOff) {
 		return mapData[currentY+yOff][currentX+xOff];
 	}
