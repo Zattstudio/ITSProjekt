@@ -20,6 +20,7 @@ public class GameState extends BasicGameState
 public static final int ID = 0;
 String drawmsg = "";
 MapHandler mHandler;
+Grid grid;
 int zuege = 10;
     @Override
     public int getID() {
@@ -31,12 +32,15 @@ int zuege = 10;
         mHandler = new MapHandler();
         //mHandler.prettyPrint();
         GameObject GO = new GameObject();
+        grid = new Grid(10, 10, 50, 10);
+        grid.setPos(200, 50);
     }
 
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics grphcs) throws SlickException {
     	grphcs.drawString(mHandler.prettyPrintString(), 40, 40);
     	grphcs.drawString(drawmsg, 40, 250);
+    	grid.drawGrid(grphcs, mHandler);
     }
     
     void move(int dirX, int dirY) {
@@ -50,9 +54,9 @@ int zuege = 10;
 			mHandler.setCurrentY(mHandler.getCurrentY()+dirY);
 			//mHandler.prettyPrint();
 			zuege -= 1;
-			drawmsg = "Züge: " + zuege + "\n";
+			drawmsg = "Zï¿½ge: " + zuege + "\n";
 			if(nextBlock=='x') {
-				drawmsg += "Du bist in eine Pfütze gelaufen";
+				drawmsg += "Du bist in eine Pfï¿½tze gelaufen";
 			}
 			if(nextBlock=='*') {
 				mHandler.setPosition(1, 1);

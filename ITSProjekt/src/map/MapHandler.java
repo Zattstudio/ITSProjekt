@@ -76,6 +76,10 @@ public class MapHandler {
 		return mapData[currentY][currentX];
 	}
 	
+	public char getTile(int x, int y) {
+		return mapData[y][x];
+	}
+	
 	
 	// More of a debug function for testing (formerly printFull)
 	public void prettyPrint() {
