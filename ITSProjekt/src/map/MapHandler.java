@@ -6,13 +6,13 @@ public class MapHandler {
 		{'#','#','#','#','#','#','#','#','#','#'},
 		{'#','.','.','.','.','.','.','.','.','#'},
 		{'#','.','.','.','.','#','#','#','.','#'},
-		{'#','.','.','.','.','.','.','.','.','#'},
-		{'#','#','#','#','#','.','.','.','.','#'},
+		{'#','.','.','.','.','.','.','.','p','#'},
+		{'#','#','#','#','#','.','x','.','.','#'},
 		{'#','.','.','.','.','.','.','.','.','#'},
 		{'#','.','.','#','.','.','#','.','.','#'},
 		{'#','.','.','#','.','.','#','.','.','#'},
-		{'#','.','p','#','.','.','#','.','.','#'},
-		{'#','#','#','#','#','#','#','#','#','#'},
+		{'#','.','.','#','.','.','#','.','.','#'},
+		{'#','#','#','#','#','#','#','#','*','#'},
 	}; // Two dimensional Array (Table) that holds the chars
 	
 	// temp solution for one test map
@@ -90,6 +90,27 @@ public class MapHandler {
 			}
 			System.out.print("\n");
 		}
+	}
+	
+	// More of a debug function for testing (formerly printFull)
+	public String prettyPrintString() {
+		String opt = "";
+		for (int i = 0; i < mapData.length; i++) {
+			for (int j = 0; j < mapData[i].length; j++) {
+				if (i == currentY && j == currentX) {
+					opt += '@';
+				}
+				else {
+					opt += mapData[i][j];
+				}
+			}
+			opt += "\n";
+		}
+		return opt;
+	}
+	public void setPosition(int x, int y) {
+		currentX = x;
+		currentY = y;
 	}
 	
 }
