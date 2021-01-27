@@ -102,6 +102,7 @@ public class MapHandler {
 				}
 				else {
 					opt += mapData[i][j];
+					// hallo
 				}
 			}
 			opt += "\n";
