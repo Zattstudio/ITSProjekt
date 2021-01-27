@@ -15,15 +15,10 @@ public class GameObject {
 	}
 	
 	public int getPosX() {
-		int xPos = posX;
-		return xPos;
+		return posX;
 	}
 	
-	public int getPosY() {
-		int yPos = posY;
-		return yPos;
-	}
-	public GameObject() {
-		System.out.print(Direction.DOWN);
+	public int getPosY() {;
+		return posY;
 	}
 }
