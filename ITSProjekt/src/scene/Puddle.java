@@ -1,3 +1,5 @@
+package scene;
+import main.Obstacle;
 
 public class Puddle extends Obstacle {
 	

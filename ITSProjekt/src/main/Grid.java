@@ -1,3 +1,4 @@
+package main;
 import org.newdawn.slick.Graphics;
 
 import map.MapHandler;

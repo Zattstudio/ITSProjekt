@@ -1,3 +1,5 @@
+package scene;
+import main.Actor;
 
 public class Player extends Actor {
 	
