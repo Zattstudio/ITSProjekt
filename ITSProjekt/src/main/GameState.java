@@ -10,6 +10,7 @@ import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
 import map.MapHandler;
+import scene.Background;
 import utility.Vector2;
 
 /**
@@ -22,6 +23,9 @@ public static final int ID = 0;
 String drawmsg = "";
 MapHandler mHandler;
 Grid grid;
+
+Background bg = new Background("assets/gfx/scene/pixeltester.png");
+
 int zuege = 10;
     @Override
     public int getID() {
@@ -39,6 +43,8 @@ int zuege = 10;
 
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics grphcs) throws SlickException {
+    	bg.draw(grphcs);
+    	
     	grphcs.drawString(mHandler.prettyPrintString(), 40, 40);
     	grphcs.drawString(drawmsg, 40, 250);
     	grid.draw(grphcs);
