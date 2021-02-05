@@ -10,6 +10,7 @@ import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
 import map.MapHandler;
+import utility.Vector2;
 
 /**
  *
@@ -31,8 +32,8 @@ int zuege = 10;
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
         mHandler = new MapHandler();
         //mHandler.prettyPrint();
-        GameObject GO = new GameObject();
-        grid = new Grid(10, 10, 50, 10);
+        Vector2 mapSize = mHandler.getMaxExtents();
+        grid = new Grid((int)mapSize.x, (int)mapSize.y, 50, 10, mHandler);
         grid.setPos(200, 50);
     }
 
@@ -40,7 +41,7 @@ int zuege = 10;
     public void render(GameContainer gc, StateBasedGame sbg, Graphics grphcs) throws SlickException {
     	grphcs.drawString(mHandler.prettyPrintString(), 40, 40);
     	grphcs.drawString(drawmsg, 40, 250);
-    	grid.drawGrid(grphcs, mHandler);
+    	grid.draw(grphcs);
     }
     
     void move(int dirX, int dirY) {

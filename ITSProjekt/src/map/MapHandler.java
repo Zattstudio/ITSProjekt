@@ -1,5 +1,6 @@
 package map;
 
+import utility.Vector2;
 
 public class MapHandler {
 	char[][] mapData = new char[][] {
@@ -10,9 +11,7 @@ public class MapHandler {
 		{'#','#','#','#','#','.','x','.','.','#'},
 		{'#','.','.','.','.','.','.','.','.','#'},
 		{'#','.','.','#','.','.','#','.','.','#'},
-		{'#','.','.','#','.','.','#','.','.','#'},
-		{'#','.','.','#','.','.','#','.','.','#'},
-		{'#','#','#','#','#','#','#','#','*','#'},
+		{'#','#','#','#','#','#','#','#','#','#'},
 	}; // Two dimensional Array (Table) that holds the chars
 	
 	// temp solution for one test map
@@ -22,8 +21,6 @@ public class MapHandler {
 	 * "#........#",
 	 * "#####....#",
 	 * "#../.....#",
-	 * "#..#..#..#",
-	 * "#..#..#..#",
 	 * "#.p#..#..#",
 	 * "##########"]
 	 * */
@@ -118,4 +115,8 @@ public class MapHandler {
 		currentY = y;
 	}
 	
+	
+	public Vector2 getMaxExtents() {
+		return new Vector2(mapData[0].length, mapData.length);
+	}
 }

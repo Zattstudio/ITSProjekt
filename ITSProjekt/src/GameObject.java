@@ -1,5 +1,6 @@
+import org.newdawn.slick.Graphics;
 
-public class GameObject {
+public abstract class GameObject {
 	protected int posX;
 	protected int posY;
 	protected int zIndex;
@@ -8,6 +9,9 @@ public class GameObject {
 	protected boolean hidden;
 	protected String name;
 	public enum Direction {LEFT, RIGHT, UP, DOWN};
+	
+	
+	public abstract void draw(Graphics gfx);
 	
 	public void setPos(int newX, int newY) {
 		posX = newX;
