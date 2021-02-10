@@ -8,6 +8,7 @@ import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.state.StateBasedGame;
 
 import main.GameState;
+import main.MenuState;
 
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.ScalableGame;
@@ -39,7 +40,7 @@ public class MainGame extends StateBasedGame {
 		{
 			AppGameContainer appgc;
 			appgc = new AppGameContainer(new ScalableGame(new MainGame("ITProjekt"), 1920, 1080) );
-			appgc.setDisplayMode(WIDTH,HEIGHT , true); 
+			appgc.setDisplayMode(WIDTH,HEIGHT , false); 
             appgc.setShowFPS(true);
             appgc.setTargetFrameRate(60);
 			appgc.start();
@@ -54,6 +55,7 @@ public class MainGame extends StateBasedGame {
 
 	@Override
 	public void initStatesList(GameContainer gc) throws SlickException {
+		this.addState(new MenuState());
 		this.addState(new GameState());
 		
 	}
