@@ -2,13 +2,15 @@
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import org.lwjgl.opengl.Display;
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.state.StateBasedGame;
 
 import main.GameState;
 
 import org.newdawn.slick.GameContainer;
-
+import org.newdawn.slick.ScalableGame;
 import org.newdawn.slick.SlickException;
 
 public class MainGame extends StateBasedGame {
@@ -30,18 +32,16 @@ public class MainGame extends StateBasedGame {
 	
 	public MainGame(String name) {
 		super(name);
-		// TODO Auto-generated constructor stub
 	}
 
 	public static void main(String[] args) {
 		try
 		{
 			AppGameContainer appgc;
-			appgc = new AppGameContainer(new MainGame("ITProjekt"));
-			appgc.setDisplayMode(WIDTH, HEIGHT, false);
-                        appgc.setShowFPS(true);
-                        appgc.setTargetFrameRate(60);
-                        appgc.setFullscreen(true);
+			appgc = new AppGameContainer(new ScalableGame(new MainGame("ITProjekt"), 1920, 1080) );
+			appgc.setDisplayMode(WIDTH,HEIGHT , true); 
+            appgc.setShowFPS(true);
+            appgc.setTargetFrameRate(60);
 			appgc.start();
 		}
 		catch (SlickException ex)

@@ -2,6 +2,7 @@ package main;
 
 import java.io.IOException;
 
+import org.lwjgl.opengl.Display;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
@@ -37,15 +38,17 @@ int zuege = 10;
         mHandler = new MapHandler();
         //mHandler.prettyPrint();
         Vector2 mapSize = mHandler.getMaxExtents();
-        grid = new Grid((int)mapSize.x, (int)mapSize.y, 50, 10, mHandler);
+        grid = new Grid((int)mapSize.x, (int)mapSize.y, 100, 10, mHandler);
         grid.setPos(200, 50);
     }
 
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics grphcs) throws SlickException {
+
+    	//
     	bg.draw(grphcs);
     	
-    	grphcs.drawString(mHandler.prettyPrintString(), 40, 40);
+    	//grphcs.drawString(mHandler.prettyPrintString(), 40, 40);
     	grphcs.drawString(drawmsg, 40, 250);
     	grid.draw(grphcs);
     }
