@@ -4,14 +4,14 @@ import utility.Vector2;
 
 public class MapHandler {
 	char[][] mapData = new char[][] {
-		{'#','#','#','#','#','#','#','#','#','#'},
-		{'#','.','.','.','.','.','.','.','.','#'},
-		{'#','.','.','.','.','#','#','#','.','#'},
-		{'#','.','.','.','.','.','.','.','p','#'},
-		{'#','#','#','#','#','.','x','.','.','#'},
-		{'#','.','.','.','.','.','.','.','.','#'},
-		{'#','.','.','#','.','.','#','.','.','#'},
-		{'#','#','#','#','#','#','#','#','#','#'},
+		{'#','#',' ','#','#','#','#','#'},
+		{' ','.','.','.','.','.','.','.'},
+		{'#','.','p','.',' ','#','#','.'},
+		{'#','.',' ','.','.','.','.','.'},
+		{'#','#','.','#','#','.','x','.'},
+		{'#','.','.','.','.','.','.','.'},
+		{'#','.','.','#','.','.','#','.'},
+		{'#','#','.','#','#','#','#','#'},
 	}; // Two dimensional Array (Table) that holds the chars
 	
 	// temp solution for one test map
@@ -66,6 +66,10 @@ public class MapHandler {
 	}
 
 	public char checkRelative(int xOff, int yOff) {
+		if (currentX+xOff > mapData[0].length-1 || currentX+xOff < 0 || currentY+yOff < 0 || currentY+yOff > mapData.length-1) {
+			/// Wenn out of map boundaries, simuliere wand durch # 
+			return '#';
+		}
 		return mapData[currentY+yOff][currentX+xOff];
 	}
 	

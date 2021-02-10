@@ -29,7 +29,7 @@ public class Background extends GameObject {
 	
 	@Override
 	public void draw(Graphics gfx) {
-		img.draw(posX, posY, 5);
+		img.draw(posX, posY, 4);
 		
 	}
 

@@ -25,7 +25,7 @@ String drawmsg = "";
 MapHandler mHandler;
 Grid grid;
 
-Background bg = new Background("assets/gfx/scene/pixeltester.png");
+Background bg = new Background("assets/gfx/scene/bg1.png");
 
 int zuege = 10;
     @Override
@@ -38,8 +38,8 @@ int zuege = 10;
         mHandler = new MapHandler();
         //mHandler.prettyPrint();
         Vector2 mapSize = mHandler.getMaxExtents();
-        grid = new Grid((int)mapSize.x, (int)mapSize.y, 100, 10, mHandler);
-        grid.setPos(200, 50);
+        grid = new Grid((int)mapSize.x, (int)mapSize.y, 100, 0, mHandler);
+        grid.setPos(200, 400);
     }
 
     @Override
@@ -49,7 +49,8 @@ int zuege = 10;
     	bg.draw(grphcs);
     	
     	//grphcs.drawString(mHandler.prettyPrintString(), 40, 40);
-    	grphcs.drawString(drawmsg, 40, 250);
+    	//grphcs.drawString(drawmsg, 40, 250);
+    	grphcs.drawString("Zuege: " + zuege, 10, 40);
     	grid.draw(grphcs);
     }
     
@@ -64,7 +65,7 @@ int zuege = 10;
 			mHandler.setCurrentY(mHandler.getCurrentY()+dirY);
 			//mHandler.prettyPrint();
 			zuege -= 1;
-			drawmsg = "Z�ge: " + zuege + "\n";
+			drawmsg = "Züge: " + zuege + "\n";
 			if(nextBlock=='x') {
 				drawmsg += "Du bist in eine Pf�tze gelaufen";
 			}
