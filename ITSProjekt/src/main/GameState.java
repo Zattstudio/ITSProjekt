@@ -25,7 +25,7 @@ String drawmsg = "";
 MapHandler mHandler;
 Grid grid;
 
-Background bg = new Background("assets/gfx/scene/bg1.png");
+Background bg = new Background("assets/gfx/scene/bg1.png", 4);
 
 int zuege = 10;
     @Override

@@ -10,9 +10,10 @@ public class Background extends GameObject {
 	
 	// Image resource for slick
 	Image img;
-	
-	public  Background(String pathToImg) {
+
+	public  Background(String pathToImg, int size) {
 		this.zIndex = -99;
+		this.scale = size;
 		setPos(0, 0); // always put it on 0,0 for now 
 		if (!pathToImg.isEmpty()) { // check for empty path passed
 			try {
@@ -29,7 +30,7 @@ public class Background extends GameObject {
 	
 	@Override
 	public void draw(Graphics gfx) {
-		img.draw(posX, posY, 4);
+		img.draw(posX, posY, scale);
 		
 	}
 

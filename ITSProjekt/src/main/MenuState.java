@@ -7,20 +7,23 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
+import scene.Background;
+
 public class MenuState extends BasicGameState {
 	
 	public static final int ID = 1;
-	
+	private Background bg;
 	@Override
 	public void init(GameContainer arg0, StateBasedGame arg1) throws SlickException {
-		// TODO Auto-generated method stub
+		bg = new Background("assets/gfx/scene/pixeltester.png", 5);
 
 	}
 
 	@Override
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics gph) throws SlickException {
-		// TODO Auto-generated method stub
-
+		
+		bg.draw(gph);
+		
 	}
 
 	@Override
