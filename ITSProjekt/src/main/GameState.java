@@ -27,7 +27,8 @@ Grid grid;
 
 Background bg = new Background("assets/gfx/scene/bg1.png", 4);
 
-int zuege = 10;
+int zuege = 0;
+
     @Override
     public int getID() {
         return GameState.ID;
@@ -40,6 +41,8 @@ int zuege = 10;
         Vector2 mapSize = mHandler.getMaxExtents();
         grid = new Grid((int)mapSize.x, (int)mapSize.y, 100, 0, mHandler);
         grid.setPos(200, 400);
+        
+        zuege = mHandler.getMap().turns;
     }
 
     @Override
@@ -48,8 +51,7 @@ int zuege = 10;
     	//
     	bg.draw(grphcs);
     	
-    	//grphcs.drawString(mHandler.prettyPrintString(), 40, 40);
-    	//grphcs.drawString(drawmsg, 40, 250);
+
     	grphcs.drawString("Zuege: " + zuege, 10, 40);
     	grid.draw(grphcs);
     }
@@ -60,17 +62,14 @@ int zuege = 10;
     		return;
 		}
 	    char nextBlock = mHandler.checkRelative(dirX, dirY);
-	    if (nextBlock  != '#'){
+	    if (nextBlock  != '#' && nextBlock  != ' ' ){
 			mHandler.setCurrentX(mHandler.getCurrentX()+dirX);
 			mHandler.setCurrentY(mHandler.getCurrentY()+dirY);
-			//mHandler.prettyPrint();
+			
 			zuege -= 1;
 			drawmsg = "Züge: " + zuege + "\n";
 			if(nextBlock=='x') {
 				drawmsg += "Du bist in eine Pf�tze gelaufen";
-			}
-			if(nextBlock=='*') {
-				mHandler.setPosition(1, 1);
 			}
 	    }
 	    else {

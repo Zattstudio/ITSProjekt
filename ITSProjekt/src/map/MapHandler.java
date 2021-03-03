@@ -3,6 +3,8 @@ package map;
 import utility.Vector2;
 
 public class MapHandler {
+	Map map;
+	
 	char[][] mapData = new char[][] {
 		{'#','#',' ','#','#','#','#','#'},
 		{' ','.','.','.','.','.','.','.'},
@@ -33,6 +35,9 @@ public class MapHandler {
 	
 	
 	public MapHandler() {
+		MapLoader mLoader = new MapLoader();
+		map = mLoader.loadMap("");
+		mapData = map.data;
 		findPlayer();
 	}
 	
@@ -120,6 +125,12 @@ public class MapHandler {
 	}
 	
 	
+	
+	
+	public Map getMap() {
+		return map;
+	}
+
 	public Vector2 getMaxExtents() {
 		return new Vector2(mapData[0].length, mapData.length);
 	}
