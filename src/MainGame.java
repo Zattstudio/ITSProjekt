@@ -29,7 +29,7 @@ public class MainGame extends StateBasedGame {
     public static final int FPS     = 60;
     public static final double VERSION = 1.0;
     
-	
+	//test
 	
 	public MainGame(String name) {
 		super(name);
