@@ -40,6 +40,7 @@ int zuege = 0;
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
         mHandler = new MapHandler();
+        mHandler.changeMap(1);
         //mHandler.prettyPrint();
         Vector2 mapSize = mHandler.getMaxExtents();
         grid = new Grid((int)mapSize.x, (int)mapSize.y, 100, 0, mHandler);
@@ -105,5 +106,8 @@ int zuege = 0;
 			dirY = 1;
 			move(dirX, dirY);
 		}
+	    
+	    
+	    
     }
 }

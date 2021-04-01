@@ -13,11 +13,11 @@ public class MapLoader {
 	
 
 	
-	public Map loadMap(String path) {
+	public Map loadMap(String nr) {
 		try {
 			gson = new GsonBuilder().setPrettyPrinting().serializeNulls().create();
 			
-			Reader reader = Files.newBufferedReader(Paths.get("assets/levels/01.json"));
+			Reader reader = Files.newBufferedReader(Paths.get("assets/levels/" + nr + ".json"));
 			
 			Map mapObj  =  gson.fromJson(reader, Map.class);
 			

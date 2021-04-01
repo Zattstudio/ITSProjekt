@@ -6,14 +6,6 @@ public class MapHandler {
 	Map map;
 	
 	char[][] mapData = new char[][] {
-		{'#','#',' ','#','#','#','#','#'},
-		{' ','.','.','.','.','.','.','.'},
-		{'#','.','p','.',' ','#','#','.'},
-		{'#','.',' ','.','.','.','.','.'},
-		{'#','#','.','#','#','.','x','.'},
-		{'#','.','.','.','.','.','.','.'},
-		{'#','.','.','#','.','.','#','.'},
-		{'#','#','.','#','#','#','#','#'},
 	}; // Two dimensional Array (Table) that holds the chars
 	
 	// temp solution for one test map
@@ -32,13 +24,12 @@ public class MapHandler {
 	private int currentX; // current x position dispatched from player
 	private int currentY; // current y position dispatched from player
 	final char playerChar = 'p'; // player start char
+	MapLoader mLoader;
 	
 	
 	public MapHandler() {
-		MapLoader mLoader = new MapLoader();
-		map = mLoader.loadMap("");
-		mapData = map.data;
-		findPlayer();
+		mLoader = new MapLoader();
+
 	}
 	
 	void findPlayer() {
@@ -52,6 +43,12 @@ public class MapHandler {
 			}
 		}
 		// Fallback handling here
+	}
+	
+	public void changeMap(int nr) {
+		map = mLoader.loadMap(Integer.toString(nr));
+		mapData = map.data;
+		findPlayer();
 	}
 	
 	public int getCurrentX() {
