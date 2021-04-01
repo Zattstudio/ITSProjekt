@@ -12,6 +12,7 @@ import org.newdawn.slick.state.StateBasedGame;
 
 import map.MapHandler;
 import scene.Background;
+import scene.SidePanel;
 import utility.Vector2;
 
 /**
@@ -24,6 +25,8 @@ public static final int ID = 0;
 String drawmsg = "";
 MapHandler mHandler;
 Grid grid;
+SidePanel panel;
+
 
 Background bg = new Background("assets/gfx/scene/bg1.png", 4);
 
@@ -42,6 +45,8 @@ int zuege = 0;
         grid = new Grid((int)mapSize.x, (int)mapSize.y, 100, 0, mHandler);
         grid.setPos(200, 400);
         
+        panel = new SidePanel();
+        
         zuege = mHandler.getMap().turns;
     }
 
@@ -51,9 +56,13 @@ int zuege = 0;
     	//
     	bg.draw(grphcs);
     	
-
+    	
     	grphcs.drawString("Zuege: " + zuege, 10, 40);
     	grid.draw(grphcs);
+    	
+    	
+    	//draw last
+    	panel.draw(grphcs);
     }
     
     void move(int dirX, int dirY) {
