@@ -25,7 +25,7 @@ public class MenuState extends BasicGameState {
 		bg = new Background("assets/gfx/scene/pixeltester.png", 5);
 		
 		try {
-			// load image 
+			// load image with catch for error handling
 			title_logoImage = new Image("assets/gfx/menu/title_menu.png");
 			title_logoImage.setFilter(Image.FILTER_NEAREST);
 			
