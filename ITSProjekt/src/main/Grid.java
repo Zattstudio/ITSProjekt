@@ -16,7 +16,7 @@ public class Grid extends GameObject {
 	
 	private Image ground;
 	private Image rock;
-	
+	private Image end_door;
 	
 	
 	public Grid(int xWidth, int yHeight, int tileSize, int offset, MapHandler m) {
@@ -30,12 +30,14 @@ public class Grid extends GameObject {
 		try {
 			rock = new Image("assets/gfx/scene/testrock.png");
 			ground = new Image ("assets/gfx/scene/groundtest.png");
+			end_door = new Image ("assets/gfx/scene/end_door.png");
 		} catch (SlickException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		rock.setFilter(Image.FILTER_NEAREST);
 		ground.setFilter(Image.FILTER_NEAREST);
+		end_door.setFilter(Image.FILTER_NEAREST);
 	}
 	
 
@@ -50,9 +52,11 @@ public class Grid extends GameObject {
 					rock.draw(currentX, currentY, tileSize/rock.getWidth()+1);
 				}
 				else if  ((char) m.getTile(j, i) == '.') {
-					ground.draw(currentX, currentY, tileSize/rock.getWidth());
+					ground.draw(currentX, currentY, tileSize/ground.getWidth());
 				}
-				
+				else if  ((char) m.getTile(j, i) == 'e') {
+					end_door.draw(currentX, currentY, tileSize/end_door.getWidth());
+				}
 				if (j == m.getCurrentX() && i == m.getCurrentY()) {
 
 					gfx.fillArc(currentX, currentY, tileSize, tileSize, 0f, 360f);
